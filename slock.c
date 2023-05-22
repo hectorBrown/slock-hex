@@ -256,11 +256,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 				errno = 0;
 				retval = pam_start(pam_service, hash, &pamc, &pamh);
 				color = PAM;
-				for (screen = 0; screen < nscreens; screen++) {
-					XSetWindowBackground(dpy, locks[screen]->win, locks[screen]->colors[color]);
-					XClearWindow(dpy, locks[screen]->win);
-					XRaiseWindow(dpy, locks[screen]->win);
-				}
+				draw(dpy, rr, locks, nscreens, color);
 				XSync(dpy, False);
 
 				if (retval == PAM_SUCCESS)
