@@ -20,3 +20,11 @@ static const int squaresize = 50;
 
 /* PAM service that's used for authentication */
 static const char* pam_service = "login";
+
+/* Patch: auto-timeout */
+/* should [command] be run only once? */
+static const int runonce = 0;
+/* length of time (seconds) until [command] is executed */
+static const int timeoffset = 30;
+/* command to be run after [timeoffset] seconds has passed */
+static const char *command = "/usr/bin/xset dpms force off";
