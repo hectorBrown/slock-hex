@@ -585,5 +585,7 @@ main(int argc, char **argv) {
 	/* everything is now blank. Wait for the correct password */
 	readpw(dpy, &rr, locks, nscreens, hash);
 
+	system("$HOME/.config/i3/dpms_remember.sh");
+
 	return 0;
 }
